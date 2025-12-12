@@ -1,0 +1,44 @@
+[build]
+  # Build command
+  command = "npm run build"
+  
+  # Directory with the deployed files
+  publish = "dist"
+  
+  # Node version (optional, but recommended)
+  environment = { NODE_VERSION = "18" }
+
+# PWA files (manifest.json, sw.js, icons) are automatically 
+# copied from public/ to dist/ during Vite build
+
+# Redirects for Single Page Application (SPA)
+# Ensures all routes are handled by index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for security and caching
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer-when-downgrade"
+    
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    # Cache static assets for 1 year
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "text/javascript; charset=utf-8"
+    
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Content-Type = "text/css; charset=utf-8"

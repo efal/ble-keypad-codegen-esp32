@@ -1,0 +1,5 @@
+{
+  "name": "ESP32 BLE Keygen",
+  "description": "A universal generator for ESP32 NimBLE Bluetooth Keyboard firmware. Configure pins, map keys, and generate efficient C++ code instantly.",
+  "requestFramePermissions": []
+}
